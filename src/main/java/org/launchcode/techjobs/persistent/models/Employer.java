@@ -17,14 +17,14 @@ public class Employer extends AbstractEntity {
     private String location;
 
     @OneToMany
-    @JoinColumn(name = "employer_id")
-    private List<Job> jobs = new ArrayList<>();
+    private final List<Job> jobs = new ArrayList<>();
 
+    public Employer() {}
     public Employer(@Size(min = 3, max = 150, message = "Location must be between 3 and 150 characters")String location) {
         this.location = location;
     }
 
-    public Employer() {}
+
     public String getLocation() {
         return location;
     }
