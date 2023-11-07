@@ -34,7 +34,7 @@ public class HomeController {
     public String index(Model model) {
 
         model.addAttribute("title", "MyJobs");
-
+        model.addAttribute("jobs", jobRepository.findAll());
         return "index";
     }
 
@@ -64,12 +64,12 @@ public class HomeController {
 
         }
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-        if (skillObjs.isEmpty()){
-            model.addAttribute("title", "Invalid Skills");
-        } else {
+//        if (skillObjs.isEmpty()){
+//            model.addAttribute("title", "Invalid Skills");
+//        } else {
             newJob.setSkills(skillObjs);
             jobRepository.save(newJob);
-        }
+       // }
          return "redirect:";
     }
 
